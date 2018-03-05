@@ -33,7 +33,7 @@ public class KweetDao {
         return em.createNamedQuery("kweet.all").getResultList();
     }
     
-    public Kweet tweetByUserID(Long userid) {
+    public Kweet kweetByUserID(Long userid) {
         return (Kweet) em.createNamedQuery("kweet.ByUserID").setParameter("UserID", userid).getSingleResult();
     }
 }
