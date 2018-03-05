@@ -18,4 +18,14 @@ import javax.persistence.PersistenceContext;
 @Stateless
 public class GroupDao {
     
+    @PersistenceContext
+    EntityManager em;
+
+    public GroupDao() {
+    }
+
+    public void saveGroup(Group grp) {
+        em.persist(grp);
+    }
+    
 }

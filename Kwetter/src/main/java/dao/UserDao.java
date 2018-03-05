@@ -5,6 +5,7 @@
  */
 package dao;
 
+import domain.Kweet;
 import domain.User;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -17,5 +18,25 @@ import javax.persistence.PersistenceContext;
  */
 @Stateless
 public class UserDao {
+    @PersistenceContext
+    EntityManager em;
+
+    public UserDao() {
+    }
     
+    public UserDao(EntityManager emr) {
+        em = emr;
+    }
+    
+    public void save(User user) {
+        em.persist(user);
+    }
+    
+    public void saveKweet(Kweet k) {
+        em.persist(k);
+    }
+    
+    public List<User> allUsers() {
+        return em.createNamedQuery("user.all").getResultList();
+    }
 }

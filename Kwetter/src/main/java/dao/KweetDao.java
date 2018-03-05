@@ -18,4 +18,22 @@ import javax.persistence.PersistenceContext;
 @Stateless
 public class KweetDao {
     
+    @PersistenceContext
+    EntityManager em;
+
+    public KweetDao() {
+    }
+    
+    public void saveKweet(Kweet kweet) {
+        em.persist(kweet);
+        em.flush();
+    }
+    
+    public List<Kweet> allKweets() {
+        return em.createNamedQuery("kweet.all").getResultList();
+    }
+    
+    public Kweet tweetByUserID(Long userid) {
+        return (Kweet) em.createNamedQuery("kweet.ByUserID").setParameter("UserID", userid).getSingleResult();
+    }
 }
