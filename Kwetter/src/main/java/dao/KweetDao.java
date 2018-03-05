@@ -15,7 +15,7 @@ import javax.persistence.PersistenceContext;
  *
  * @author Kasper
  */
-@Stateless
+//@Stateless
 public class KweetDao {
     
     @PersistenceContext

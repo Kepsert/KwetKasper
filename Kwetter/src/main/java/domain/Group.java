@@ -12,10 +12,10 @@ import javax.persistence.Id;
  *
  * @author Kasper
  */
-@Entity
+//@Entity
 public class Group {
     
-    @Id
+    //@Id
     private long id;
 
     public Group() {

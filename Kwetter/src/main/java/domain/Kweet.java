@@ -15,21 +15,21 @@ import javax.persistence.ManyToOne;
  *
  * @author Kasper
  */
-@Entity
+//@Entity
 public class Kweet {
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@Id
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     
-    @ManyToOne
+    //@ManyToOne
     private User user;
     
     public User getUser() {
         return user;
     }
     
-    public void setUser() {
+    public void setUser(User user) {
         this.user = user;
     }
     
