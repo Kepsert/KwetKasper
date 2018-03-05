@@ -6,7 +6,10 @@
 package domain;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -16,10 +19,44 @@ import javax.persistence.Id;
 public class Kweet {
     
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     
+    @ManyToOne
+    private User user;
+    
+    public User getUser() {
+        return user;
+    }
+    
+    public void setUser() {
+        this.user = user;
+    }
+    
+    private String message;
+    
+    //Constructor
     public Kweet () {
         
     }
     
+    public Kweet(User user) {
+        this.user = user;
+    }
+    
+    public String getMessage() {
+        return message;
+    }
+    
+    public  void setMessage(String message) {
+        this.message = message;
+    }
+    
+    public Long getId() {
+        return id;
+    }
+    
+    public void setId(Long id) {
+        this.id = id;
+    }
 }
